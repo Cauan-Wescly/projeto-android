@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+
+}
+
+/* Cores
+-claro
+#c5ebd6
+#83e1ad
+#3ddc84
+#2fab66
+#1a5c37
+#063d1e
+-escuro
+*/
+
+/* Configurações GLOBAIS, todas vão ter. */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/* Através da dev tools, foi possível identificar que as box-levels sempre vem com margin e padding, o que afasta tudo das bordas do site. */
+a.externo::after {
+    content: '\00A0\1F517'
+}
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fab66;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao)
+}
+
+header {
+    text-align: center;
+
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+
+    min-height: 150px;
+    /* Afastar o título do topo sem quebrar a formatação */
+    padding-top: 40px;
+}
+
+/* configra apenas os h1 DENTRO DO HEADER. Se houverem outras grouping tags, não sofrem alteração. */
+header > h1 {
+    color: snow;
+    font-weight: normal;
+    font-family: var(--fonte-destaque);
+    /* afastar a descrição inferior do título */
+    margin-bottom: 20px;
+    /* 3x o tamanho original 16px */
+    font-size: 3em;
+    /* É possível testar sombras utilizando o DEV TOOLS, buscando o h1 ou o item desejado */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.439);
+}
+
+header > p {
+    color: snow;
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    /* Encurtar mais a leitura do texto */
+    max-width: 600px;
+    /* desgrudar o texto da borda depois de diminuir o tamanho */
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.439);
+}
+
+nav {
+    background-color: var(--cor5);
+    /* destacar as opções de navegação */
+    padding: 10px;
+    /* Dev tools */
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.194);
+}
+
+nav > a {
+    color: var(--cor1);
+    /* afastar os itens */
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: .5s;
+}
+
+nav > a:hover {
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+/* corpo do site */
+main {
+    background-color: snow;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.496);
+    /* border-radius: 10px; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* vertical horizontal espalhamento cor */
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1em;
+    font-size: 1em;
+}
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+/* Todos outros links (navegação e rodapé) foram configurados manualmente. Este aqui é para todos os outros links do main */
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    /* padding: 2px 6px; */
+}
+
+/* Quando passar o mouse, vai ficar mais claro q é um link */
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%;
+}
+
+main img.pequena {
+    /* A imagem é pequena, então se ela crescer muito vai ficar embaçada, ou vai acabar ficando mto pequena com 50% de tamanho (entender cenarios q cada qual é melhor) */
+    max-width: 350px;
+    /* sempre que o resultado não for satisfatório, basta fazer de outro jeito, não existe um jeito único */
+    
+    /* Imagens não são blocos, então é necessário mudar o display para alterar a forma que parâmetros alteram ela. */
+    display: block;
+    margin: auto;
+    /* o ideal mesmo é ter uma imagem menor para substituir a versão grande */
+}
+
+div.video {
+    background-color: var(--cor5);
+    /* para grudar o background nas bordas. verificar o que cada valor tá fazendo */
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 57.5%;
+
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: snow;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 7px;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.275);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: snow;
+    padding: 10px;
+    /* para cobrir o espaço colorido atrás, seguindo a ordem de ^ ^ v v */
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+/* aside > ul = apenas as ul dentro de aside, ignorando outras grouping texts */
+aside ul {
+    /* 2714 = checkmark emoji / 00A0 = espaço */
+    /* não é compatível com todos navegadores */
+    list-style-type: '\2714\00A0\00A0';
+    /* o padrão é outside */
+    list-style-position: inside;
+    columns: 2;
+    /* pode ate dividir em 3 colunas, mas tem que analisar quando o site ficar espremido. */
+}
+
+/* ou footer > p > a */
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
+/*
+
+Com a DEV TOOLS aberta, é possível arrastar a tela e verificar a resolução que ela se encontra, para definir um bom limite de largura que em telas largas não vai ficar muito espalhado, nem em telas curtas vai ficar muito grudado.
+
+considerando as imagens desse site, entre 1000 a 800px é uma margem ideal de tamanho.
+
+*/
+
+/* Anotar como ele utiliza principalmente as GROUPING TAGS para fazer alterações de estilo */
