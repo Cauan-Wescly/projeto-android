@@ -63,10 +63,8 @@ header > h1 {
     color: snow;
     font-weight: normal;
     font-family: var(--fonte-destaque);
-    /* afastar a descrição abaixo do título */
-    
-    /* margin-bottom: 20px; - Através de análise com o dev tools, o uso de margin estava incorreto pois não estava alterando verdadeiramente o afastamento */
-    padding-bottom: 50px;
+    /* Espaço abaixo do título para afastar o "subtítulo" */
+    margin-bottom: 20px;
 
     /* 3x o tamanho original 16px */
     font-size: 3em;
@@ -85,7 +83,10 @@ header > p {
     padding-right: 10px;
     padding-left: 10px;
     margin: auto;
-    margin-bottom: 20px;
+
+    /* margin-bottom: 20px; - Através de análise com o dev tools, o uso de margin estava incorreto pois não estava alterando verdadeiramente o afastamento */
+    padding-bottom: 50px;
+
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.439);
 }
 
