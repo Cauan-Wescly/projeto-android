@@ -63,10 +63,14 @@ header > h1 {
     color: snow;
     font-weight: normal;
     font-family: var(--fonte-destaque);
-    /* afastar a descrição inferior do título */
-    margin-bottom: 20px;
+    /* afastar a descrição abaixo do título */
+    
+    /* margin-bottom: 20px; - Através de análise com o dev tools, o uso de margin estava incorreto pois não estava alterando verdadeiramente o afastamento */
+    padding-bottom: 50px;
+
     /* 3x o tamanho original 16px */
     font-size: 3em;
+
     /* É possível testar sombras utilizando o DEV TOOLS, buscando o h1 ou o item desejado */
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.439);
 }
